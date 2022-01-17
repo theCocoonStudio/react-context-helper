@@ -1,0 +1,47 @@
+{
+  "name": "react-context-helper",
+  "version": "1.0.0",
+  "description": "Helps you easily update your React context from consumers",
+  "source": "src/index.js",
+  "scripts": {
+    "test": "jest",
+    "watch": "parcel watch",
+    "build": "parcel build",
+    "dev": "parcel serve",
+    "prepare": "husky install"
+  },
+  "keywords": [
+    "React",
+    "hook",
+    "react",
+    "context",
+    "context",
+    "react"
+  ],
+  "module": "dist/module.js",
+  "author": "Izzy Erlich",
+  "license": "MIT",
+  "browserslist": [
+    "defaults",
+    "maintained node versions"
+  ],
+  "devDependencies": {
+    "eslint": "^8.7.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "husky": "^7.0.4",
+    "jest": "^27.4.7",
+    "lint-staged": "^12.1.7",
+    "parcel": "^2.2.1",
+    "prettier": "^2.5.1"
+  },
+  "peerDependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix"
+  }
+}
