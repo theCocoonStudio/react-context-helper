@@ -11,10 +11,12 @@
     "plugin:prettier/recommended",
     "prettier"
   ],
+  "plugins": ["jest"],
   "env": {
     "browser": true,
     "es2021": true,
-    "node": true
+    "node": true,
+    "jest/globals": true
   },
   "parserOptions": {
     "ecmaFeatures": {

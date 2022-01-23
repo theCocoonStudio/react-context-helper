@@ -1,5 +1,7 @@
 import { useCallback } from "react";
-import { enableES5, useImmer } from "immer";
+import { enableES5 } from "immer";
+import { useImmer } from "use-immer";
+import React from "react";
 enableES5();
 
 export const ContextProvider = (props) => {
@@ -23,11 +25,12 @@ export const ContextProvider = (props) => {
     },
     [setContext],
   );
+
   return (
-    <props.context.Provider
+    <props.contextObj.Provider
       value={{ ...context, updateContext, removeFromContext }}
     >
       {props.children}
-    </props.context.Provider>
+    </props.contextObj.Provider>
   );
 };
