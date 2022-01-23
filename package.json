@@ -1,6 +1,6 @@
 {
   "name": "react-context-helper",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Helps you easily update your React context from consumers",
   "source": "src/index.js",
   "scripts": {
