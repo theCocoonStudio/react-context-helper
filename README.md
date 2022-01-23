@@ -19,7 +19,9 @@ const context = createContext({});
 const Consumer = () => {
   const consumedContext = useContext(context);
 
+  /* changes context to { message: "hello context!", bar: 2} */
   consumedContext.updateContext({ message: "hello context!" });
+  consumedContext.removeFromContext(["foo"]);
 
   // output: hello context!
   return <div>{consumedContext.message}</div>;
@@ -27,7 +29,10 @@ const Consumer = () => {
 
 const App = () => {
   return (
-    <ContextProvider contextObj={context} value={{ message: "hello world" }}>
+    <ContextProvider
+      contextObj={context}
+      value={{ message: "hello world", foo: 1, bar: 2 }}
+    >
       <Consumer />
     </ContextProvider>
   );
