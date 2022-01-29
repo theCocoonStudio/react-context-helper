@@ -2,7 +2,7 @@
 
 # react-context-helper
 
-A wrapper component that helps you easily update your React context from consumers. Works exactly like a regular context provider but adds the methods `updateContext` and `removeFromContext` to the context object.
+A wrapper component that helps you easily update your React context from consumers. Works exactly like a regular `Context.Provider` but adds the methods `updateContext` and `removeFromContext` to the context the consumer gets.
 
 ## Install:
 
@@ -39,41 +39,80 @@ const App = () => {
 };
 ```
 
-## API
+## `ContextProvider` props
 
-Your context is assumed to be a regular object. The context provided by `ContextProvider` adds two functions to your context that allow you to modify your object as necessary.
+- `value`: `Object`  
+  Identical to the `value` prop for any `Context.Provider`, except for the (current) requirement that it be a regular object.
 
-Note: these functions wrap `setState` calls which are asynchoronous.
+- `contextObj`: `Context`  
+  The React `Context` that the consumer will be consuming.
+
+  Example:
+
+```js
+//snippet from Context.js
+const initial = { foo: "bar", fizz: { buzz: { fizz: "buzz" } } };
+const context = createContext(initial);
+export default context;
+//
+
+//snippet from App.js
+import context from "path/to/context";
+
+const App = () => {
+  return (
+    <ContextProvider contextObj={context} value={initialValue}>
+      <ChildWithConsumers />
+    </ContextProvider>
+  );
+};
+//
+```
+
+## Functions added to the context object
+
+The context value is assumed to be a regular object. An upcoming version will work for arrays and primitives as well.
+
+The context provided by `ContextProvider` includes two methods which allow you to modify your context as necessary:
+
+(Note: these functions wrap `setState` calls, which are asynchoronous.)
 
 ### `updateContext(updateObject)`
 
 Parameters:
 
-- updateObject: Object  
-  an Object to merge with your current context. Any properties that are already in the context object are overriden, and any properties that aren't are added.
+- `updateObject`: `Object`  
+  an Object to merge with the current context. Any properties that are already in the context object are overriden, and any properties that aren't are added.
 
 Return value:
 
 - void
 
 ```js
-//within your consumer component
+//snippet from Context.js
 const initial = { foo: "bar", fizz: { buzz: { fizz: "buzz" } } };
 const context = createContext(initial);
+export default context;
+//
+
+//snippet from Consumer.js
+import context from "path/to/context";
 const consumedContext = useContext(context);
 
-/* 
-changes context to 
-{ foo: "bar", fizz: { buzz: "fizz"}, bar: "foo" } 
+/*
+changes context to
+{ foo: "bar", fizz: { buzz: "fizz"}, bar: "foo" }
 */
 consumedContext.updateContext({ fizz: { buzz: "fizz" }, bar: "foo" });
+
+//
 ```
 
-### `removeFromContext([keyArray])`
+### `removeFromContext(keyArray)`
 
 Parameters:
 
-- keyArray: Array<string>  
+- `keyArray`: `Array<string>`:  
   an array of keys (strings) to properties that will be removed from the context object.
 
 Return value:
@@ -81,9 +120,14 @@ Return value:
 - void
 
 ```js
-//within your consumer component
+//snippet from Context.js
 const initial = { foo: "bar", fizz: { buzz: { fizz: "buzz" } } };
 const context = createContext(initial);
+export default context;
+//
+
+//snippet from Consumer.js
+import context from "path/to/context";
 const consumedContext = useContext(context);
 
 /* 
@@ -91,4 +135,6 @@ changes context to
 { foo: "bar" } 
 */
 consumedContext.removeFromContext(["fizz"]);
+
+//
 ```
