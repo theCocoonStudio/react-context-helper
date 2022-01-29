@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
 import { enableES5 } from "immer";
 import { useImmer } from "use-immer";
 import React from "react";
@@ -26,10 +26,17 @@ export const ContextProvider = (props) => {
     [setContext],
   );
 
+  //prevents a rerender in consumers every time the Provider's parent rerenders
+  const [contextObj, setContextObj] = React.useState({
+    ...context,
+    updateContext,
+    removeFromContext,
+  });
+  useEffect(() => {
+    setContextObj({ ...context, updateContext, removeFromContext });
+  }, [context, updateContext, removeFromContext]);
   return (
-    <props.contextObj.Provider
-      value={{ ...context, updateContext, removeFromContext }}
-    >
+    <props.contextObj.Provider value={contextObj}>
       {props.children}
     </props.contextObj.Provider>
   );
