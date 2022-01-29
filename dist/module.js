@@ -1,5 +1,5 @@
 import {jsx as $aODKb$jsx} from "react/jsx-runtime";
-import {useCallback as $aODKb$useCallback} from "react";
+import $aODKb$react, {useCallback as $aODKb$useCallback, useEffect as $aODKb$useEffect} from "react";
 import {enableES5 as $aODKb$enableES5} from "immer";
 import {useImmer as $aODKb$useImmer} from "use-immer";
 
@@ -33,12 +33,25 @@ const $a406a6d4cebe87fe$export$9f27bc3417b4524d = (props)=>{
     }, [
         setContext
     ]);
-    return(/*#__PURE__*/ $aODKb$jsx(props.contextObj.Provider, {
-        value: {
+    //prevents a rerender in consumers every time the Provider's parent rerenders
+    const [contextObj, setContextObj] = $aODKb$react.useState({
+        ...context,
+        updateContext: updateContext,
+        removeFromContext: removeFromContext
+    });
+    $aODKb$useEffect(()=>{
+        setContextObj({
             ...context,
             updateContext: updateContext,
             removeFromContext: removeFromContext
-        },
+        });
+    }, [
+        context,
+        updateContext,
+        removeFromContext
+    ]);
+    return(/*#__PURE__*/ $aODKb$jsx(props.contextObj.Provider, {
+        value: contextObj,
         children: props.children
     }));
 };
