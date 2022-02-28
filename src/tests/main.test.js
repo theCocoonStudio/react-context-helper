@@ -3,7 +3,7 @@ import { createContext, useContext } from "react";
 import { mount } from "enzyme";
 import React from "react";
 
-let contextObj;
+let contextObj, wrapper;
 class Child extends React.Component {
   render() {
     return <div></div>;
@@ -14,8 +14,9 @@ beforeEach(() => {
   contextObj = createContext({});
   Child.contextType = contextObj;
 });
+
 test("context is accessible with class components", () => {
-  const wrapper = mount(<Child />, {
+  wrapper = mount(<Child />, {
     wrappingComponent: ContextProvider,
     wrappingComponentProps: {
       contextObj: contextObj,
@@ -31,7 +32,7 @@ test("context is accessible with function components", () => {
     const testContext = useContext(contextObj);
     return <div>{testContext.message}</div>;
   };
-  const wrapper = mount(<Child />, {
+  wrapper = mount(<Child />, {
     wrappingComponent: ContextProvider,
     wrappingComponentProps: {
       contextObj: contextObj,
