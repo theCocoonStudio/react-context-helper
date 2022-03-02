@@ -40,7 +40,7 @@ export const ContextProvider = ({ value, contextObj, children }) => {
   );
 };
 
-export const useMemoComponent = (
+export const useMemoConsumer = (
   ChildComponent,
   ContextObj,
   contextPropsKeys,
@@ -94,7 +94,7 @@ import ChildComponent from "/path/to/ChildComponent.js";
 
 export default function Consumer = () => {
 const [MemoizedChildComponent, contextProps] = 
-  useMemoComponent(ChildComponent, Context, ["foo"]);
+  useMemoConsumer(ChildComponent, Context, ["foo"]);
 
 return 
   <MemoizedChildComponent {...contextProps} {..any other props}/> 
