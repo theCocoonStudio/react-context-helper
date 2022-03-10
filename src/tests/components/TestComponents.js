@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import React from "react";
 //slow fibonacci implementation
 function fib(x) {
   if (x <= 0) return 0;
@@ -12,9 +13,9 @@ const HeavyComponent = ({ contextObj }) => {
   return <div>{answer}</div>;
 };
 
-const HeavyComponentPure = ({ fibNum }) => {
+const HeavyComponentPure = ({ fibNum, nonContextProp }) => {
   const answer = fib(fibNum);
-  return <div>{answer}</div>;
+  return <div id={nonContextProp}>{answer}</div>;
 };
 
 const LightComponent = ({ contextObj }) => {
@@ -22,8 +23,8 @@ const LightComponent = ({ contextObj }) => {
   return <div>{fibNum}</div>;
 };
 
-const LightComponentPure = ({ fibNum }) => {
-  return <div>{fibNum}</div>;
+const LightComponentPure = ({ fibNum, nonContextProp }) => {
+  return <div id={nonContextProp}>{fibNum}</div>;
 };
 
 export {

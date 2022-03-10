@@ -14,15 +14,17 @@ const PureConsumer = ({ foo, nonContextProp }) => {
 };
 
 const App = () => {
-  const MemoizedPureConsumer = useMemoConsumer(PureConsumer, ContextObject, [
-    "foo",
-  ]);
+  const [MemoizedPureConsumer, contextProps] = useMemoConsumer(
+    PureConsumer,
+    ContextObject,
+    ["foo"],
+  );
   return (
     <ContextProvider
       value={{ foo: "bar", fizz: "buzz" }}
       contextObj={ContextObject}
     >
-      <MemoizedPureConsumer nonContextProp="someClassName" />
+      <MemoizedPureConsumer {...contextProps} nonContextProp="someClassName" />
     </ContextProvider>
   );
 };

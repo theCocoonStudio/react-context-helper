@@ -46,12 +46,13 @@ export const useMemoConsumer = (
   contextPropsKeys,
 ) => {
   const context = useContext(ContextObj);
+
   const contextMap = contextPropsKeys
     .filter((key) => Object.prototype.hasOwnProperty.call(context, key))
-    .map((key) => {
-      [key, context[key]];
-    });
+    .map((key) => [key, context[key]]);
+
   const contextProps = Object.fromEntries(contextMap);
+
   const Wrapper = memo(function Wrapper(props) {
     return <ChildComponent {...props}>{props.children}</ChildComponent>;
   });
