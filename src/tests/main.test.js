@@ -1,4 +1,4 @@
-import { ContextProvider } from "../components/ContextHelper";
+import { ContextProvider, useMemoConsumer } from "../components/ContextHelper"; //eslint-disable-line
 import { createContext, useContext } from "react";
 import { mount } from "enzyme";
 import React from "react";

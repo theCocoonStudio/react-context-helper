@@ -1,4 +1,7 @@
-import { ContextProvider, useMemoConsumer } from "../components/ContextHelper";
+import {
+  ContextProvider,
+  useMemoConsumer,
+} from "../src/components/ContextHelper";
 import { createContext } from "react";
 import ReactDOM from "react-dom";
 

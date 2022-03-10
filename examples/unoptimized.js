@@ -1,4 +1,4 @@
-import { ContextProvider } from "../components/ContextHelper";
+import { ContextProvider } from "../src/components/ContextHelper";
 import { useContext, createContext } from "react";
 import ReactDOM from "react-dom";
 
