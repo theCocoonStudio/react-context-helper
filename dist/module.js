@@ -1,5 +1,5 @@
 import {jsx as $aODKb$jsx} from "react/jsx-runtime";
-import {useCallback as $aODKb$useCallback, useMemo as $aODKb$useMemo, useContext as $aODKb$useContext, memo as $aODKb$memo} from "react";
+import {useCallback as $aODKb$useCallback, useMemo as $aODKb$useMemo, useContext as $aODKb$useContext, useState as $aODKb$useState, memo as $aODKb$memo} from "react";
 import {enableES5 as $aODKb$enableES5} from "immer";
 import {useImmer as $aODKb$useImmer} from "use-immer";
 
@@ -49,21 +49,18 @@ const $a406a6d4cebe87fe$export$9f27bc3417b4524d = ({ value: value , contextObj: 
         children: children
     }));
 };
-const $a406a6d4cebe87fe$export$3e751bb0566a9386 = (ChildComponent, ContextObj, contextPropsKeys)=>{
+const $a406a6d4cebe87fe$export$b4c8ee8f2434bf17 = (ChildComponent, ContextObj, contextPropsKeys)=>{
     const context = $aODKb$useContext(ContextObj);
     const contextMap = contextPropsKeys.filter((key)=>Object.prototype.hasOwnProperty.call(context, key)
-    ).map((key)=>{
-        context[key];
-    });
+    ).map((key)=>[
+            key,
+            context[key]
+        ]
+    );
     const contextProps = Object.fromEntries(contextMap);
-    const Wrapper = /*#__PURE__*/ $aODKb$memo(function Wrapper(props) {
-        return(/*#__PURE__*/ $aODKb$jsx(ChildComponent, {
-            ...props,
-            children: props.children
-        }));
-    });
+    const [Memo] = $aODKb$useState(/*#__PURE__*/ $aODKb$memo(ChildComponent));
     return [
-        Wrapper,
+        Memo,
         contextProps
     ];
 }; //usage:
@@ -96,12 +93,13 @@ import ChildComponent from "/path/to/ChildComponent.js";
 
 export default function Consumer = () => {
 const [MemoizedChildComponent, contextProps] = 
-  useMemoComponent(ChildComponent, Context, ["foo"]);
+  useMemoConsumer(ChildComponent, Context, ["foo"]);
 
 return 
   <MemoizedChildComponent {...contextProps} {..any other props}/> 
 }
-*/ 
+*/  //TO DO :
+ //test context imports
 
 
 var $393673603234b845$export$9f27bc3417b4524d;
