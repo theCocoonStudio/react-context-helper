@@ -2,7 +2,13 @@
 
 # react-context-helper
 
-A wrapper component that helps you easily update your React context from consumers. Works exactly like a regular `Context.Provider` but adds the methods `updateContext` and `removeFromContext` to the context the consumer gets.
+This small library provides:
+
+- A wrapper component that helps you easily update your React context from consumers. Works exactly like a regular `Context.Provider` but adds the methods `updateContext` and `removeFromContext` to the context the consumer gets.
+
+- A custom hook, `useMemoConsumer`, that allows you to optimize heavy consumers that would otherwise always update when the context they consume updates, even if the properties they consume don't change.
+
+NOTE: documentation on `useMemoConsumer` is coming soon. Please check out `examples/contextHelperExample.js` for now.
 
 ## Install:
 
