@@ -144,3 +144,10 @@ consumedContext.removeFromContext(["fizz"]);
 
 //
 ```
+
+## How to contribute
+
+```
+yarn
+yarn test
+```
