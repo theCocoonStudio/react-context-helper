@@ -1,4 +1,4 @@
-import { useCallback, useContext, memo, useMemo } from "react";
+import { useCallback, useContext, memo, useState, useMemo } from "react";
 import { enableES5 } from "immer";
 import { useImmer } from "use-immer";
 import React from "react";
@@ -52,13 +52,11 @@ export const useMemoConsumer = (
     .map((key) => [key, context[key]]);
 
   const contextProps = Object.fromEntries(contextMap);
+  const [Memo] = useState(memo(ChildComponent));
 
-  const Wrapper = memo(function Wrapper(props) {
-    return <ChildComponent {...props}>{props.children}</ChildComponent>;
-  });
-
-  return [Wrapper, contextProps];
+  return [Memo, contextProps];
 };
+
 //usage:
 // const [MemoizedChildComponent, contextProps] = useContext(...)
 

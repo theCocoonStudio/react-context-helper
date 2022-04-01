@@ -4,14 +4,14 @@ import {
   useContext,
   useState,
   useCallback,
-  Profiler, //eslint-disable-line
+  Profiler,
 } from "react";
 import { mount } from "enzyme";
 import React from "react";
 import {
-  HeavyComponent, //eslint-disable-line
-  HeavyComponentPure,//eslint-disable-line
-  LightComponent,//eslint-disable-line
+  HeavyComponent,
+  HeavyComponentPure,
+  LightComponent,
   LightComponentPure,
 } from "./components/TestComponents";
 
@@ -179,8 +179,7 @@ describe("testing useMemoConsumer hook", () => {
         ContextObj,
         ["fibNum"],
       );
-      console.log("contextProps:");
-      console.log(contextProps);
+
       const context = useContext(ContextObj);
       const update = () => {
         context.updateContext({
@@ -188,6 +187,7 @@ describe("testing useMemoConsumer hook", () => {
           propTwo: context.propOne + "bar",
         });
       };
+      console.log("child rendering");
       return (
         <div id="click" onClick={() => update()}>
           <MemoizedConsumer {...contextProps} nonContextProp={"someString"} />

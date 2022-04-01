@@ -24,6 +24,7 @@ const LightComponent = ({ contextObj }) => {
 };
 
 const LightComponentPure = ({ fibNum, nonContextProp }) => {
+  console.log("consumer rendering");
   return <div id={nonContextProp}>{fibNum}</div>;
 };
 
