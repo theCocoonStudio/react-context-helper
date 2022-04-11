@@ -4,7 +4,7 @@
   "description": "Helps you easily update your React context from consumers",
   "source": "src/index.js",
   "scripts": {
-    "test": "jest --bail --passWithNoTests",
+    "test": "jest --bail --passWithNoTests --coverage --collectCoverageFrom=src/components/**/*.js",
     "watch": "parcel watch",
     "build": "parcel build",
     "dev": "parcel serve",

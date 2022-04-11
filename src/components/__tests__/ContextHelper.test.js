@@ -1,4 +1,8 @@
-import { ContextProvider, useMemoConsumer } from "../components/ContextHelper";
+import {
+  ContextProvider,
+  useMemoConsumer,
+  ContextReducerProvider,
+} from "../ContextHelper";
 import {
   createContext,
   useContext,
@@ -13,7 +17,7 @@ import {
   HeavyComponentPure,
   LightComponent,
   LightComponentPure,
-} from "./components/TestComponents";
+} from "../../tests/components/TestComponents";
 
 test("ContextProvider: context is accessible with class components", () => {
   const contextObj = createContext({});
