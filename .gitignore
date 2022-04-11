@@ -37,3 +37,6 @@ yarn-error.log*
 
 # parcel
 .parcel-cache
+
+#eslint
+.eslintcache
