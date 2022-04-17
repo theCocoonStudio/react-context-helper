@@ -15,7 +15,12 @@ const HeavyComponent = ({ contextObj }) => {
 
 const HeavyComponentPure = ({ fibNum, nonContextProp }) => {
   const answer = fib(fibNum);
-  return <div id={nonContextProp}>{answer}</div>;
+  return (
+    <>
+      <div id={nonContextProp}>{fibNum}</div>
+      <div id="test">{answer}</div>
+    </>
+  );
 };
 
 const LightComponent = ({ contextObj }) => {
@@ -23,9 +28,13 @@ const LightComponent = ({ contextObj }) => {
   return <div>{fibNum}</div>;
 };
 
-const LightComponentPure = ({ fibNum, nonContextProp }) => {
-  console.log("consumer rendering");
-  return <div id={nonContextProp}>{fibNum}</div>;
+const LightComponentPure = ({ propTwo, fibNum, nonContextProp }) => {
+  return (
+    <>
+      <div id={nonContextProp}>{fibNum}</div>
+      <div id="test">{propTwo || "nothing"}</div>
+    </>
+  );
 };
 
 export {
