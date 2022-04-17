@@ -1,7 +1,7 @@
 import {jsx as $aODKb$jsx} from "react/jsx-runtime";
 import {useCallback as $aODKb$useCallback, useMemo as $aODKb$useMemo, useContext as $aODKb$useContext, useState as $aODKb$useState, memo as $aODKb$memo} from "react";
 import {enableES5 as $aODKb$enableES5} from "immer";
-import {useImmer as $aODKb$useImmer} from "use-immer";
+import {useImmer as $aODKb$useImmer, useImmerReducer as $aODKb$useImmerReducer} from "use-immer";
 
 function $parcel$export(e, n, v, s) {
   Object.defineProperty(e, n, {get: v, set: s, enumerable: true, configurable: true});
@@ -49,6 +49,21 @@ const $a406a6d4cebe87fe$export$9f27bc3417b4524d = ({ value: value , contextObj: 
         children: children
     }));
 };
+const $a406a6d4cebe87fe$export$3bca6b9001e9621c = ({ value: value , contextObj: contextObj , children: children , reducer: reducer ,  })=>{
+    const [context, dispatch] = $aODKb$useImmerReducer(reducer, value);
+    const contextValue = $aODKb$useMemo(()=>({
+            ...context,
+            dispatch: dispatch
+        })
+    , [
+        context,
+        dispatch
+    ]);
+    return(/*#__PURE__*/ $aODKb$jsx(contextObj.Provider, {
+        value: contextValue,
+        children: children
+    }));
+};
 const $a406a6d4cebe87fe$export$b4c8ee8f2434bf17 = (ChildComponent, ContextObj, contextPropsKeys)=>{
     const context = $aODKb$useContext(ContextObj);
     const contextMap = contextPropsKeys.filter((key)=>Object.prototype.hasOwnProperty.call(context, key)
@@ -63,43 +78,7 @@ const $a406a6d4cebe87fe$export$b4c8ee8f2434bf17 = (ChildComponent, ContextObj, c
         Memo,
         contextProps
     ];
-}; //usage:
- // const [MemoizedChildComponent, contextProps] = useContext(...)
- //return <MemoizedChildComponent {...contextProps} {..any other props}><ChildComponent/></MemoizedChildComponent>
- //write cli that takes a component and determines if it's better to use React.memo or not
- //context objects will be exported using a named export in the same file the ContextProvider is used:
- //App.js
- /*
-import ContextProvider from 'react-context-helper';
-
-export const Context = React.createContext();
-
-export default function App() {
-  const initialValue = {
-    foo: bar,
-    fizz: buzz,
-  };
-  return (
-    <ContextProvider value={initialValue} contextObj={Context}>
-      <User />
-    </ContextProvider>
-  )
-}
-*/  //Consumer.js
- /*
-import { useMemoizedChild } from "react-context-helper";
-import Context from "/path/to/App.js";
-import ChildComponent from "/path/to/ChildComponent.js";
-
-export default function Consumer = () => {
-const [MemoizedChildComponent, contextProps] = 
-  useMemoConsumer(ChildComponent, Context, ["foo"]);
-
-return 
-  <MemoizedChildComponent {...contextProps} {..any other props}/> 
-}
-*/  //TO DO :
- //test context imports
+};
 
 
 var $393673603234b845$export$9f27bc3417b4524d;
