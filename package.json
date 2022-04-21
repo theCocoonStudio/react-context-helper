@@ -1,7 +1,7 @@
 {
   "name": "react-context-helper",
   "version": "1.0.8",
-  "description": "Helps you easily update your React context from consumers",
+  "description": "Tiny library that provides easy updating of context and optimization of context consumers.",
   "source": "src/index.js",
   "scripts": {
     "test": "jest --bail --passWithNoTests --coverage --collectCoverageFrom=src/components/**/*.js",
@@ -17,7 +17,7 @@
     "react component",
     "react context",
     "context",
-    "react"
+    "optimization"
   ],
   "module": "dist/module.js",
   "author": "Izzy Erlich",
