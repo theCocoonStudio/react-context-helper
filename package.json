@@ -1,6 +1,6 @@
 {
   "name": "react-context-helper",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Tiny library that provides easy updating of context and optimization of context consumers.",
   "source": "src/index.js",
   "scripts": {
@@ -19,7 +19,9 @@
     "context",
     "optimization"
   ],
-  "module": "dist/module.js",
+  "module": "./dist/module.js",
+  "main": "./dist/index.js",
+  "exports": "./dist/index.js",
   "author": "Izzy Erlich",
   "license": "MIT",
   "browserslist": [
