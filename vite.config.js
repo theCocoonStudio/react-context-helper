@@ -13,7 +13,7 @@ const production = {
       entry: resolve(__dirname, "lib/main.jsx"),
       name: "ContextHelper",
       formats: ["es", "umd"],
-      fileName: (format) => `lib.${format}.js`,
+      fileName: (format) => `react-context-helper.${format}.js`,
     },
     rollupOptions: {
       // externalize deps that shouldn't be bundled
