@@ -1,25 +1,39 @@
 {
   "name": "react-context-helper",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "description": "Tiny library that provides easy updating of context and optimization of context consumers.",
   "source": "src/index.js",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/react-context-helper.umd.cjs",
+  "module": "./dist/react-context-helper.js",
+  "exports": {
+    ".": {
+      "import": "./dist/react-context-helper.js",
+      "require": "./dist/react-context-helper.umd.cjs"
+    }
+  },
   "scripts": {
-    "test": "jest --bail --passWithNoTests --coverage --collectCoverageFrom=src/components/**/*.js",
-    "watch": "parcel watch",
-    "build": "parcel build",
-    "dev": "parcel serve",
+    "test": "jest --bail --passWithNoTests --coverage --collectCoverageFrom=lib/components/**/*.jsx",
+    "preview": "vite preview",
+    "build": "vite build",
+    "dev": "vite",
     "prepare": "husky install",
     "lint": "eslint --cache --fix"
   },
+  "homepage": "https://github.com/theCocoonStudio/react-context-helper",
   "keywords": [
     "React",
-    "helper component",
+    "optimization",
+    "javascript",
+    "typescript",
     "react component",
     "react context",
     "context",
-    "optimization"
+    "react optimization"
   ],
-  "main": "dist/index.js",
   "author": "Izzy Erlich",
   "license": "MIT",
   "browserslist": [
@@ -44,9 +58,12 @@
     "husky": "^7.0.4",
     "jest": "^27.4.7",
     "lint-staged": "^12.1.7",
-    "parcel": "^2.2.1",
     "prettier": "^2.5.1",
-    "react-test-renderer": "^17.0.2"
+    "react-test-renderer": "^17.0.2",
+    "@types/react": "^18.0.25",
+    "@types/react-dom": "^18.0.9",
+    "@vitejs/plugin-react": "^2.2.0",
+    "vite": "^3.2.4"
   },
   "peerDependencies": {
     "react": ">=16.8.0",
