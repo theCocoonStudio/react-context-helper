@@ -1,17 +1,16 @@
 {
   "name": "react-context-helper",
-  "version": "1.2.0",
+  "version": "1.2.2",
   "description": "Tiny library that provides easy updating of context and optimization of context consumers.",
-  "source": "src/index.js",
   "type": "module",
   "files": [
     "dist"
   ],
   "main": "./dist/react-context-helper.umd.cjs",
-  "module": "./dist/react-context-helper.js",
+  "module": "./dist/react-context-helper.es.js",
   "exports": {
     ".": {
-      "import": "./dist/react-context-helper.js",
+      "import": "./dist/react-context-helper.es.js",
       "require": "./dist/react-context-helper.umd.cjs"
     }
   },
@@ -21,7 +20,8 @@
     "build": "vite build",
     "dev": "vite",
     "prepare": "husky install",
-    "lint": "eslint --cache --fix"
+    "lint": "eslint --cache --fix",
+    "prepack": "json -f package.json -I -e \"delete this.devDependencies; delete this.dependencies\""
   },
   "homepage": "https://github.com/theCocoonStudio/react-context-helper",
   "keywords": [
@@ -40,43 +40,14 @@
     "defaults",
     "maintained node versions"
   ],
-  "devDependencies": {
-    "@babel/cli": "^7.16.8",
-    "@babel/core": "^7.16.12",
-    "@babel/preset-env": "^7.16.11",
-    "@babel/preset-react": "^7.16.7",
-    "@wojtekmaj/enzyme-adapter-react-17": "^0.6.6",
-    "babel-jest": "^27.4.6",
-    "babel-plugin-styled-components": "^2.0.2",
-    "enzyme": "^3.11.0",
-    "eslint": "^8.7.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-jest": "^25.7.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-react": "^7.28.0",
-    "eslint-plugin-react-hooks": "^4.3.0",
-    "husky": "^7.0.4",
-    "jest": "^27.4.7",
-    "lint-staged": "^12.1.7",
-    "prettier": "^2.5.1",
-    "react-test-renderer": "^17.0.2",
-    "@types/react": "^18.0.25",
-    "@types/react-dom": "^18.0.9",
-    "@vitejs/plugin-react": "^2.2.0",
-    "vite": "^3.2.4"
-  },
-  "peerDependencies": {
-    "react": ">=16.8.0",
-    "react-dom": ">=16.8.0"
-  },
   "lint-staged": {
-    "*.js": [
+    "*.jsx": [
       "eslint --cache --fix",
       "npm run test"
     ]
   },
-  "dependencies": {
-    "immer": "^9.0.12",
-    "use-immer": "^0.6.0"
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
   }
 }

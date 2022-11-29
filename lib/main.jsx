@@ -1,3 +1,1 @@
-import { ContextProvider, useMemoConsumer } from "./components/ContextHelper";
-
-export { ContextProvider, useMemoConsumer };
+export { ContextProvider, useMemoConsumer } from "./components/ContextHelper";
