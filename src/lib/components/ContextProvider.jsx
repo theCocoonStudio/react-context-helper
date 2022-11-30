@@ -55,3 +55,5 @@ export const ContextReducerProvider = ({
     <contextObj.Provider value={contextValue}>{children}</contextObj.Provider>
   );
 };
+
+export default { ContextProvider, ContextReducerProvider };
