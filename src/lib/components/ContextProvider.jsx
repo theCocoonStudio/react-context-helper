@@ -1,4 +1,4 @@
-import { useCallback, useContext, memo, useState, useMemo } from "react";
+import { useCallback, useMemo } from "react";
 import { enableES5 } from "immer";
 import { useImmer, useImmerReducer } from "use-immer";
 enableES5();
@@ -55,22 +55,3 @@ export const ContextReducerProvider = ({
     <contextObj.Provider value={contextValue}>{children}</contextObj.Provider>
   );
 };
-
-export const useMemoConsumer = (
-  ChildComponent,
-  ContextObj,
-  contextPropsKeys,
-) => {
-  const context = useContext(ContextObj);
-
-  const contextMap = contextPropsKeys
-    .filter((key) => Object.prototype.hasOwnProperty.call(context, key))
-    .map((key) => [key, context[key]]);
-
-  const contextProps = Object.fromEntries(contextMap);
-  const [Memo] = useState(memo(ChildComponent));
-
-  return [Memo, contextProps];
-};
-
-export default { ContextProvider, ContextReducerProvider, useMemoConsumer };

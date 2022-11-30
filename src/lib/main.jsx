@@ -1,4 +1,6 @@
-import ContextHelper from "./components/ContextHelper";
+export {
+  ContextProvider,
+  ContextReducerProvider,
+} from "./components/ContextProvider";
 
-export const { useMemoConsumer, ContextProvider, ContextReducerProvider } =
-  ContextHelper;
+export { useMemoConsumer } from "./hooks/useMemoConsumer";
