@@ -1,9 +1,10 @@
 import { defineConfig } from "vite"; // to leverage intellisense
 import react from "@vitejs/plugin-react";
+import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import { resolve } from "path";
 
 const baseConfig = {
-  plugins: [react()],
+  plugins: [peerDepsExternal(), react()],
 };
 
 const production = {
@@ -23,6 +24,9 @@ const production = {
         },
       },
     },
+  },
+  esbuild: {
+    jsxInject: `import React from 'react'`,
   },
 };
 

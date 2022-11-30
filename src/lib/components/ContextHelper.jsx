@@ -1,7 +1,6 @@
 import { useCallback, useContext, memo, useState, useMemo } from "react";
 import { enableES5 } from "immer";
 import { useImmer, useImmerReducer } from "use-immer";
-import React from "react";
 enableES5();
 
 export const ContextProvider = ({ value, contextObj, children }) => {
