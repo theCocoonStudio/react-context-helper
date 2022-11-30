@@ -2,6 +2,6 @@
   "clearMocks": true,
   "collectCoverage": true,
   "coverageDirectory": "coverage",
-  "setupFilesAfterEnv": ["<rootDir>lib/tests/setupTests.js"],
+  "setupFilesAfterEnv": ["<rootDir>src/lib/tests/setupTests.js"],
   "testEnvironment": "jsdom"
 }

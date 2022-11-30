@@ -10,10 +10,8 @@ const production = {
   build: {
     chunkSizeWarningLimit: 100,
     lib: {
-      entry: resolve(__dirname, "lib/main.jsx"),
+      entry: resolve(__dirname, "src/lib/main.jsx"),
       name: "ContextHelper",
-      formats: ["es", "umd"],
-      fileName: (format) => `react-context-helper.${format}.js`,
     },
     rollupOptions: {
       // externalize deps that shouldn't be bundled
@@ -32,7 +30,7 @@ const development = {
   build: { minify: false },
   clearScreen: false,
 };
-console.log(JSON.stringify({ ...baseConfig, ...production }));
+
 export default defineConfig(({ mode }) => ({
   ...baseConfig,
   ...{ development, production }[mode],

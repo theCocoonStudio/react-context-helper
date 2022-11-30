@@ -1,16 +1,17 @@
 {
   "name": "react-context-helper",
-  "version": "1.2.3",
+  "version": "1.2.5",
   "description": "Tiny library that provides easy updating of context and optimization of context consumers.",
   "type": "module",
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "main": "./dist/react-context-helper.umd.cjs",
-  "module": "./dist/react-context-helper.es.js",
+  "module": "./dist/react-context-helper.js",
   "exports": {
     ".": {
-      "import": "./dist/react-context-helper.es.js",
+      "import": "./dist/react-context-helper.js",
       "require": "./dist/react-context-helper.umd.cjs"
     }
   },
@@ -20,8 +21,7 @@
     "build": "vite build",
     "dev": "vite",
     "prepare": "husky install",
-    "lint": "eslint --cache --fix",
-    "prepack": "json -f package.json -I -e \"delete this.devDependencies; delete this.dependencies\""
+    "lint": "eslint --cache --fix"
   },
   "homepage": "https://github.com/theCocoonStudio/react-context-helper",
   "keywords": [
@@ -44,10 +44,39 @@
     "*.jsx": [
       "eslint --cache --fix",
       "npm run test"
+    ],
+    "*.js": [
+      "eslint --cache --fix",
+      "npm run test"
     ]
   },
-  "peerDependencies": {
-    "react": ">=16.8.0",
-    "react-dom": ">=16.8.0"
+  "devDependencies": {
+    "@babel/cli": "^7.16.8",
+    "@babel/core": "^7.16.12",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
+    "@types/react": "^18.0.25",
+    "@types/react-dom": "^18.0.9",
+    "@vitejs/plugin-react": "^2.2.0",
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.6.6",
+    "babel-jest": "^27.4.6",
+    "enzyme": "^3.11.0",
+    "eslint": "^8.7.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-jest": "^25.7.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "husky": "^7.0.4",
+    "jest": "^27.4.7",
+    "lint-staged": "^12.1.7",
+    "prettier": "^2.5.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "vite": "^3.2.4"
+  },
+  "dependencies": {
+    "immer": "^9.0.12",
+    "use-immer": "^0.6.0"
   }
 }

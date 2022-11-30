@@ -73,3 +73,5 @@ export const useMemoConsumer = (
 
   return [Memo, contextProps];
 };
+
+export default { ContextProvider, ContextReducerProvider, useMemoConsumer };
