@@ -1,6 +1,6 @@
 import { useCallback, useMemo } from "react";
 import { enableES5 } from "immer";
-import { useImmer, useImmerReducer } from "use-immer";
+import { useImmer } from "use-immer";
 enableES5();
 
 export const ContextProvider = ({ value, contextObj, children }) => {
@@ -39,21 +39,4 @@ export const ContextProvider = ({ value, contextObj, children }) => {
   );
 };
 
-export const ContextReducerProvider = ({
-  value,
-  contextObj,
-  children,
-  reducer,
-}) => {
-  const [context, dispatch] = useImmerReducer(reducer, value);
-
-  const contextValue = useMemo(
-    () => ({ ...context, dispatch }),
-    [context, dispatch],
-  );
-  return (
-    <contextObj.Provider value={contextValue}>{children}</contextObj.Provider>
-  );
-};
-
-export default { ContextProvider, ContextReducerProvider };
+export default { ContextProvider };

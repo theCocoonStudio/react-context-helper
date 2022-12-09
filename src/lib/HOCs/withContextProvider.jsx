@@ -1,6 +1,4 @@
-const getDisplayName = (WrappedComponent) =>
-  WrappedComponent.displayName || WrappedComponent.name || "Component";
-
+import { getDisplayName } from "../utility/utilities";
 import {
   ContextProvider,
   /* ContextReducerProvider, */
@@ -11,12 +9,16 @@ export const withContextProvider = (
   ContextObj,
   initialValue = {},
 ) => {
-  const WithContextProvider = (props) => (
+  const WithContextProvider = ({ children, ...props }) => (
     <ContextProvider contextObj={ContextObj} value={initialValue}>
-      <ContextController {...props} />
+      {ContextController === ContextProvider ? (
+        children
+      ) : (
+        <ContextController {...props}>{children}</ContextController>
+      )}
     </ContextProvider>
   );
-  WithContextProvider.displayName = `WithSubscription(${getDisplayName(
+  WithContextProvider.displayName = `WithContextProvider(${getDisplayName(
     ContextController,
   )})`;
   return WithContextProvider;

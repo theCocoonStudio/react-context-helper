@@ -1,4 +1,5 @@
-import { ContextProvider, ContextReducerProvider } from "../ContextProvider";
+import { ContextProvider } from "../ContextProvider";
+import { ContextReducerProvider } from "../ContextReducerProvider";
 import { createContext, useContext } from "react";
 import { mount } from "enzyme";
 import React from "react";

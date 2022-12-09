@@ -16,3 +16,5 @@ export const useMemoConsumer = (
 
   return [Memo, contextProps];
 };
+
+export default { useMemoConsumer };

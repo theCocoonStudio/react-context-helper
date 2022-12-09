@@ -1,20 +1,21 @@
 import { useContext } from "react";
-import { ContextObj, ContextObjHOC } from "../App";
+import { ContextObj } from "./ContextProvider";
+import { ContextObj as CustomContextObj } from "./CustomProvider";
 
 const Container = () => {
-  const { one, updateContext } = useContext(ContextObj);
-  const { ten, updateContext: updateOtherContext } = useContext(ContextObjHOC);
+  const { one, updateContext } = useContext(CustomContextObj);
+  const { one: otherOne } = useContext(ContextObj);
 
   const onClick = () => updateContext({ one: one + 1 });
-  const onOtherClick = () => updateOtherContext({ ten: ten + 10 });
 
   return (
     <div id="container">
       <div onClick={onClick} className="child">
-        {one}
+        Clicking here will add one to this number: {one}
       </div>
-      <div onClick={onOtherClick} className="child">
-        {ten}
+      <div className="child">
+        Clicking on the other box will trigger a custom provider to add one to
+        this number: {otherOne}
       </div>
     </div>
   );
