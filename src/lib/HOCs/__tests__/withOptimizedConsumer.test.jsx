@@ -1,5 +1,5 @@
 import { ContextProvider } from "../../components/ContextProvider";
-import { withOptimizedConsumer } from "../withOptimizedComponent";
+import { withOptimizedConsumer } from "../withOptimizedConsumer";
 import { createContext, useContext, useState, useCallback } from "react";
 import { mount } from "enzyme";
 import React from "react";

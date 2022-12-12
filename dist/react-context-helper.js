@@ -1,10 +1,10 @@
-import { useState as se, useCallback as G, useMemo as he, useContext as ye, memo as me } from "react";
-import { jsx as R } from "react/jsx-runtime";
+import { useState as se, useCallback as G, useMemo as ye, useContext as me, memo as be } from "react";
+import { jsx as M } from "react/jsx-runtime";
 function m(e) {
   for (var t = arguments.length, r = Array(t > 1 ? t - 1 : 0), n = 1; n < t; n++)
     r[n - 1] = arguments[n];
   if (process.env.NODE_ENV !== "production") {
-    var o = xe[e], u = o ? typeof o == "function" ? o.apply(null, r) : o : "unknown error nr: " + e;
+    var o = Ee[e], u = o ? typeof o == "function" ? o.apply(null, r) : o : "unknown error nr: " + e;
     throw Error("[Immer] " + u);
   }
   throw Error("[Immer] minified error nr: " + e + (r.length ? " " + r.map(function(i) {
@@ -22,7 +22,7 @@ function N(e) {
     if (r === null)
       return !0;
     var n = Object.hasOwnProperty.call(r, "constructor") && r.constructor;
-    return n === Object || typeof n == "function" && Function.toString.call(n) === Ee;
+    return n === Object || typeof n == "function" && Function.toString.call(n) === Ne;
   }(e) || Array.isArray(e) || !!e[ce] || !!e.constructor[ce] || L(e) || Q(e));
 }
 function S(e, t, r) {
@@ -39,7 +39,7 @@ function F(e) {
 function _(e, t) {
   return F(e) === 2 ? e.has(t) : Object.prototype.hasOwnProperty.call(e, t);
 }
-function be(e, t) {
+function ge(e, t) {
   return F(e) === 2 ? e.get(t) : e[t];
 }
 function le(e, t, r) {
@@ -55,7 +55,7 @@ function L(e) {
 function Q(e) {
   return De && e instanceof Set;
 }
-function D(e) {
+function A(e) {
   return e.o || e.t;
 }
 function Y(e) {
@@ -69,12 +69,12 @@ function Y(e) {
   }
   return Object.create(Object.getPrototypeOf(e), t);
 }
-function C(e, t) {
-  return t === void 0 && (t = !1), Z(e) || E(e) || !N(e) || (F(e) > 1 && (e.set = e.add = e.clear = e.delete = ge), Object.freeze(e), t && S(e, function(r, n) {
-    return C(n, !0);
+function z(e, t) {
+  return t === void 0 && (t = !1), Z(e) || E(e) || !N(e) || (F(e) > 1 && (e.set = e.add = e.clear = e.delete = Pe), Object.freeze(e), t && S(e, function(r, n) {
+    return z(n, !0);
   }, !0)), e;
 }
-function ge() {
+function Pe() {
   m(2);
 }
 function Z(e) {
@@ -84,7 +84,7 @@ function j(e) {
   var t = H[e];
   return t || m(18, e), t;
 }
-function Pe(e, t) {
+function Oe(e, t) {
   H[e] || (H[e] = t);
 }
 function X() {
@@ -94,7 +94,7 @@ function W(e, t) {
   t && (j("Patches"), e.u = [], e.s = [], e.v = t);
 }
 function V(e) {
-  q(e), e.p.forEach(Oe), e.p = null;
+  q(e), e.p.forEach(je), e.p = null;
 }
 function q(e) {
   e === k && (k = e.l);
@@ -102,11 +102,11 @@ function q(e) {
 function re(e) {
   return k = { p: [], l: k, h: e, m: !0, _: 0 };
 }
-function Oe(e) {
+function je(e) {
   var t = e[d];
   t.i === 0 || t.i === 1 ? t.j() : t.O = !0;
 }
-function U(e, t) {
+function $(e, t) {
   t._ = t.p.length;
   var r = t.p[0], n = e !== void 0 && e !== r;
   return t.h.g || j("ES5").S(t, e, n), n ? (r[d].P && (V(t), m(4)), N(e) && (e = K(t, e), t.l || T(t, e)), t.u && j("Patches").M(r[d].t, e, t.u, t.s)) : e = K(t, r, []), V(t), t.u && t.v(t.u, t.s), e !== de ? e : void 0;
@@ -146,11 +146,11 @@ function ne(e, t, r, n, o, u) {
   }
 }
 function T(e, t, r) {
-  r === void 0 && (r = !1), e.h.F && e.m && C(t, r);
+  r === void 0 && (r = !1), e.h.F && e.m && z(t, r);
 }
-function $(e, t) {
+function U(e, t) {
   var r = e[d];
-  return (r ? D(r) : e)[t];
+  return (r ? A(r) : e)[t];
 }
 function oe(e, t) {
   if (t in e)
@@ -161,22 +161,22 @@ function oe(e, t) {
       r = Object.getPrototypeOf(r);
     }
 }
-function x(e) {
-  e.P || (e.P = !0, e.l && x(e.l));
+function D(e) {
+  e.P || (e.P = !0, e.l && D(e.l));
 }
 function J(e) {
   e.o || (e.o = Y(e.t));
 }
 function B(e, t, r) {
   var n = L(t) ? j("MapSet").N(t, r) : Q(t) ? j("MapSet").T(t, r) : e.g ? function(o, u) {
-    var i = Array.isArray(o), a = { i: i ? 1 : 0, A: u ? u.A : X(), P: !1, I: !1, D: {}, l: u, t: o, k: null, o: null, j: null, C: !1 }, f = a, c = z;
-    i && (f = [a], c = M);
+    var i = Array.isArray(o), a = { i: i ? 1 : 0, A: u ? u.A : X(), P: !1, I: !1, D: {}, l: u, t: o, k: null, o: null, j: null, C: !1 }, f = a, c = R;
+    i && (f = [a], c = C);
     var s = Proxy.revocable(f, c), p = s.revoke, l = s.proxy;
     return a.k = l, a.j = p, l;
   }(t, r) : j("ES5").J(t, r);
   return (r ? r.A : X()).p.push(n), n;
 }
-function je(e) {
+function we(e) {
   return E(e) || m(22, e), function t(r) {
     if (!N(r))
       return r;
@@ -188,7 +188,7 @@ function je(e) {
     } else
       n = ie(r, u);
     return S(n, function(i, a) {
-      o && be(o.t, i) === a || le(n, i, t(a));
+      o && ge(o.t, i) === a || le(n, i, t(a));
     }), u === 3 ? new Set(n) : n;
   }(e);
 }
@@ -201,15 +201,15 @@ function ie(e, t) {
   }
   return Y(e);
 }
-function we() {
+function xe() {
   function e(i, a) {
     var f = u[i];
     return f ? f.enumerable = a : u[i] = f = { configurable: !0, enumerable: a, get: function() {
       var c = this[d];
-      return process.env.NODE_ENV !== "production" && o(c), z.get(c, i);
+      return process.env.NODE_ENV !== "production" && o(c), R.get(c, i);
     }, set: function(c) {
       var s = this[d];
-      process.env.NODE_ENV !== "production" && o(s), z.set(s, i, c);
+      process.env.NODE_ENV !== "production" && o(s), R.set(s, i, c);
     } }, f;
   }
   function t(i) {
@@ -218,10 +218,10 @@ function we() {
       if (!f.P)
         switch (f.i) {
           case 5:
-            n(f) && x(f);
+            n(f) && D(f);
             break;
           case 4:
-            r(f) && x(f);
+            r(f) && D(f);
         }
     }
   }
@@ -253,10 +253,10 @@ function we() {
     return !1;
   }
   function o(i) {
-    i.O && m(3, JSON.stringify(D(i)));
+    i.O && m(3, JSON.stringify(A(i)));
   }
   var u = {};
-  Pe("ES5", { J: function(i, a) {
+  Oe("ES5", { J: function(i, a) {
     var f = Array.isArray(i), c = function(p, l) {
       if (p) {
         for (var v = Array(l.length), h = 0; h < l.length; h++)
@@ -266,8 +266,8 @@ function we() {
       var y = ve(l);
       delete y[d];
       for (var w = I(y), P = 0; P < w.length; P++) {
-        var A = w[P];
-        y[A] = e(A, p || !!y[A].enumerable);
+        var x = w[P];
+        y[x] = e(x, p || !!y[x].enumerable);
       }
       return Object.create(Object.getPrototypeOf(l), y);
     }(f, i), s = { i: f ? 5 : 4, A: a ? a.A : X(), P: !1, I: !1, D: {}, l: a, t: i, k: c, o: null, O: !1, C: !1 };
@@ -280,18 +280,18 @@ function we() {
           var l = p.t, v = p.k, h = p.D, y = p.i;
           if (y === 4)
             S(v, function(g) {
-              g !== d && (l[g] !== void 0 || _(l, g) ? h[g] || c(v[g]) : (h[g] = !0, x(p)));
+              g !== d && (l[g] !== void 0 || _(l, g) ? h[g] || c(v[g]) : (h[g] = !0, D(p)));
             }), S(l, function(g) {
-              v[g] !== void 0 || _(v, g) || (h[g] = !1, x(p));
+              v[g] !== void 0 || _(v, g) || (h[g] = !1, D(p));
             });
           else if (y === 5) {
-            if (n(p) && (x(p), h.length = !0), v.length < l.length)
+            if (n(p) && (D(p), h.length = !0), v.length < l.length)
               for (var w = v.length; w < l.length; w++)
                 h[w] = !1;
             else
               for (var P = l.length; P < v.length; P++)
                 h[P] = !0;
-            for (var A = Math.min(v.length, l.length), O = 0; O < A; O++)
+            for (var x = Math.min(v.length, l.length), O = 0; O < x; O++)
               v.hasOwnProperty(O) || (h[O] = !0), h[O] === void 0 && c(v[O]);
           }
         }
@@ -301,7 +301,7 @@ function we() {
     return i.i === 4 ? r(i) : n(i);
   } });
 }
-var ue, k, ee = typeof Symbol < "u" && typeof Symbol("x") == "symbol", Ae = typeof Map < "u", De = typeof Set < "u", ae = typeof Proxy < "u" && Proxy.revocable !== void 0 && typeof Reflect < "u", de = ee ? Symbol.for("immer-nothing") : ((ue = {})["immer-nothing"] = !0, ue), ce = ee ? Symbol.for("immer-draftable") : "__$immer_draftable", d = ee ? Symbol.for("immer-state") : "__$immer_state", xe = { 0: "Illegal state", 1: "Immer drafts cannot have computed properties", 2: "This object has been frozen and should not be mutated", 3: function(e) {
+var ue, k, ee = typeof Symbol < "u" && typeof Symbol("x") == "symbol", Ae = typeof Map < "u", De = typeof Set < "u", ae = typeof Proxy < "u" && Proxy.revocable !== void 0 && typeof Reflect < "u", de = ee ? Symbol.for("immer-nothing") : ((ue = {})["immer-nothing"] = !0, ue), ce = ee ? Symbol.for("immer-draftable") : "__$immer_draftable", d = ee ? Symbol.for("immer-state") : "__$immer_state", Ee = { 0: "Illegal state", 1: "Immer drafts cannot have computed properties", 2: "This object has been frozen and should not be mutated", 3: function(e) {
   return "Cannot use a proxy that has been revoked. Did you pass an object from inside an immer function to an async process? " + e;
 }, 4: "An immer producer returned a new value *and* modified its draft. Either return a new value *or* modify the draft.", 5: "Immer forbids circular references", 6: "The first or second argument to `produce` must be a function", 7: "The third argument to `produce` must be a function or undefined", 8: "First argument to `createDraft` must be a plain object, an array, or an immerable object", 9: "First argument to `finishDraft` must be a draft returned by `createDraft`", 10: "The given draft is already finalized", 11: "Object.defineProperty() cannot be used on an Immer draft", 12: "Object.setPrototypeOf() cannot be used on an Immer draft", 13: "Immer only supports deleting array indices", 14: "Immer only supports setting array indices and the 'length' property", 15: function(e) {
   return "Cannot apply patch, path doesn't resolve: " + e;
@@ -315,45 +315,45 @@ var ue, k, ee = typeof Symbol < "u" && typeof Symbol("x") == "symbol", Ae = type
   return "'current' expects a draft, got: " + e;
 }, 23: function(e) {
   return "'original' expects a draft, got: " + e;
-}, 24: "Patching reserved attributes like __proto__, prototype and constructor is not allowed" }, Ee = "" + Object.prototype.constructor, I = typeof Reflect < "u" && Reflect.ownKeys ? Reflect.ownKeys : Object.getOwnPropertySymbols !== void 0 ? function(e) {
+}, 24: "Patching reserved attributes like __proto__, prototype and constructor is not allowed" }, Ne = "" + Object.prototype.constructor, I = typeof Reflect < "u" && Reflect.ownKeys ? Reflect.ownKeys : Object.getOwnPropertySymbols !== void 0 ? function(e) {
   return Object.getOwnPropertyNames(e).concat(Object.getOwnPropertySymbols(e));
 } : Object.getOwnPropertyNames, ve = Object.getOwnPropertyDescriptors || function(e) {
   var t = {};
   return I(e).forEach(function(r) {
     t[r] = Object.getOwnPropertyDescriptor(e, r);
   }), t;
-}, H = {}, z = { get: function(e, t) {
+}, H = {}, R = { get: function(e, t) {
   if (t === d)
     return e;
-  var r = D(e);
+  var r = A(e);
   if (!_(r, t))
     return function(o, u, i) {
       var a, f = oe(u, i);
       return f ? "value" in f ? f.value : (a = f.get) === null || a === void 0 ? void 0 : a.call(o.k) : void 0;
     }(e, r, t);
   var n = r[t];
-  return e.I || !N(n) ? n : n === $(e.t, t) ? (J(e), e.o[t] = B(e.A.h, n, e)) : n;
+  return e.I || !N(n) ? n : n === U(e.t, t) ? (J(e), e.o[t] = B(e.A.h, n, e)) : n;
 }, has: function(e, t) {
-  return t in D(e);
+  return t in A(e);
 }, ownKeys: function(e) {
-  return Reflect.ownKeys(D(e));
+  return Reflect.ownKeys(A(e));
 }, set: function(e, t, r) {
-  var n = oe(D(e), t);
+  var n = oe(A(e), t);
   if (n != null && n.set)
     return n.set.call(e.k, r), !0;
   if (!e.P) {
-    var o = $(D(e), t), u = o == null ? void 0 : o[d];
+    var o = U(A(e), t), u = o == null ? void 0 : o[d];
     if (u && u.t === r)
       return e.o[t] = r, e.D[t] = !1, !0;
     if (pe(r, o) && (r !== void 0 || _(e.t, t)))
       return !0;
-    J(e), x(e);
+    J(e), D(e);
   }
   return e.o[t] === r && typeof r != "number" && (r !== void 0 || t in e.o) || (e.o[t] = r, e.D[t] = !0, !0);
 }, deleteProperty: function(e, t) {
-  return $(e.t, t) !== void 0 || t in e.t ? (e.D[t] = !1, J(e), x(e)) : delete e.D[t], e.o && delete e.o[t], !0;
+  return U(e.t, t) !== void 0 || t in e.t ? (e.D[t] = !1, J(e), D(e)) : delete e.D[t], e.o && delete e.o[t], !0;
 }, getOwnPropertyDescriptor: function(e, t) {
-  var r = D(e), n = Reflect.getOwnPropertyDescriptor(r, t);
+  var r = A(e), n = Reflect.getOwnPropertyDescriptor(r, t);
   return n && { writable: !0, configurable: e.i !== 1 || t !== "length", enumerable: n.enumerable, value: r[t] };
 }, defineProperty: function() {
   m(11);
@@ -361,17 +361,17 @@ var ue, k, ee = typeof Symbol < "u" && typeof Symbol("x") == "symbol", Ae = type
   return Object.getPrototypeOf(e.t);
 }, setPrototypeOf: function() {
   m(12);
-} }, M = {};
-S(z, function(e, t) {
-  M[e] = function() {
+} }, C = {};
+S(R, function(e, t) {
+  C[e] = function() {
     return arguments[0] = arguments[0][0], t.apply(this, arguments);
   };
-}), M.deleteProperty = function(e, t) {
-  return process.env.NODE_ENV !== "production" && isNaN(parseInt(t)) && m(13), M.set.call(this, e, t, void 0);
-}, M.set = function(e, t, r) {
-  return process.env.NODE_ENV !== "production" && t !== "length" && isNaN(parseInt(t)) && m(14), z.set.call(this, e[0], t, r, e[0]);
+}), C.deleteProperty = function(e, t) {
+  return process.env.NODE_ENV !== "production" && isNaN(parseInt(t)) && m(13), C.set.call(this, e, t, void 0);
+}, C.set = function(e, t, r) {
+  return process.env.NODE_ENV !== "production" && t !== "length" && isNaN(parseInt(t)) && m(14), R.set.call(this, e[0], t, r, e[0]);
 };
-var Ne = function() {
+var Se = function() {
   function e(r) {
     var n = this;
     this.g = ae, this.F = !0, this.produce = function(o, u, i) {
@@ -382,11 +382,11 @@ var Ne = function() {
         return function(y) {
           var w = this;
           y === void 0 && (y = a);
-          for (var P = arguments.length, A = Array(P > 1 ? P - 1 : 0), O = 1; O < P; O++)
-            A[O - 1] = arguments[O];
+          for (var P = arguments.length, x = Array(P > 1 ? P - 1 : 0), O = 1; O < P; O++)
+            x[O - 1] = arguments[O];
           return f.produce(y, function(g) {
             var te;
-            return (te = u).call.apply(te, [w, g].concat(A));
+            return (te = u).call.apply(te, [w, g].concat(x));
           });
         };
       }
@@ -399,13 +399,13 @@ var Ne = function() {
           l ? V(s) : q(s);
         }
         return typeof Promise < "u" && c instanceof Promise ? c.then(function(y) {
-          return W(s, i), U(y, s);
+          return W(s, i), $(y, s);
         }, function(y) {
           throw V(s), y;
-        }) : (W(s, i), U(c, s));
+        }) : (W(s, i), $(c, s));
       }
       if (!o || typeof o != "object") {
-        if ((c = u(o)) === void 0 && (c = o), c === de && (c = void 0), n.F && C(c, !0), i) {
+        if ((c = u(o)) === void 0 && (c = o), c === de && (c = void 0), n.F && z(c, !0), i) {
           var v = [], h = [];
           j("Patches").M(o, c, v, h), i(v, h);
         }
@@ -431,14 +431,14 @@ var Ne = function() {
   }
   var t = e.prototype;
   return t.createDraft = function(r) {
-    N(r) || m(8), E(r) && (r = je(r));
+    N(r) || m(8), E(r) && (r = we(r));
     var n = re(this), o = B(this, r, void 0);
     return o[d].C = !0, q(n), o;
   }, t.finishDraft = function(r, n) {
     var o = r && r[d];
     process.env.NODE_ENV !== "production" && (o && o.C || m(9), o.I && m(10));
     var u = o.A;
-    return W(u, n), U(void 0, u);
+    return W(u, n), $(void 0, u);
   }, t.setAutoFreeze = function(r) {
     this.F = r;
   }, t.setUseProxies = function(r) {
@@ -458,28 +458,28 @@ var Ne = function() {
       return i(a, n);
     });
   }, e;
-}(), b = new Ne(), Se = b.produce;
+}(), b = new Se(), _e = b.produce;
 b.produceWithPatches.bind(b);
 b.setAutoFreeze.bind(b);
 b.setUseProxies.bind(b);
 b.applyPatches.bind(b);
 b.createDraft.bind(b);
 b.finishDraft.bind(b);
-function _e(e) {
+function Ie(e) {
   var t = se(function() {
-    return C(typeof e == "function" ? e() : e, !0);
+    return z(typeof e == "function" ? e() : e, !0);
   }), r = t[1];
   return [t[0], G(function(n) {
-    r(typeof n == "function" ? Se(n) : C(n));
+    r(typeof n == "function" ? _e(n) : z(n));
   }, [])];
 }
-we();
+xe();
 const fe = ({
   value: e,
   contextObj: t,
   children: r
 }) => {
-  const [n, o] = _e(e), u = G((f) => {
+  const [n, o] = Ie(e), u = G((f) => {
     o((c) => {
       Object.assign(c, f);
     });
@@ -489,39 +489,53 @@ const fe = ({
         delete c[s];
       });
     });
-  }, [o]), a = he(() => ({
+  }, [o]), a = ye(() => ({
     ...n,
     updateContext: u,
     removeFromContext: i
   }), [n, u, i]);
-  return /* @__PURE__ */ R(t.Provider, {
+  return /* @__PURE__ */ M(t.Provider, {
     value: a,
     children: r
   });
-}, Me = (e, t, r) => {
-  const n = ye(t), o = r.filter((a) => Object.prototype.hasOwnProperty.call(n, a)).map((a) => [a, n[a]]), u = Object.fromEntries(o), [i] = se(me(e));
+}, ke = (e, t, r) => {
+  const n = me(t), o = r.filter((a) => Object.prototype.hasOwnProperty.call(n, a)).map((a) => [a, n[a]]), u = Object.fromEntries(o), [i] = se(be(e));
   return [i, u];
-}, Ie = (e) => e.displayName || e.name || "Component", Ce = (e, t, r = {}) => {
+}, he = (e) => e.displayName || e.name || "Component", Me = (e, t, r = {}) => {
   const n = ({
     children: o,
     ...u
-  }) => /* @__PURE__ */ R(fe, {
+  }) => /* @__PURE__ */ M(fe, {
     contextObj: t,
     value: r,
-    children: e === fe ? o : /* @__PURE__ */ R(e, {
+    children: e === fe ? o : /* @__PURE__ */ M(e, {
       ...u,
       children: o
     })
   });
-  return n.displayName = `WithContextProvider(${Ie(e)})`, n;
-}, ze = (...e) => ({
+  return n.displayName = `WithContextProvider(${he(e)})`, n;
+}, ze = (e, t, r) => {
+  const n = ({
+    children: o,
+    ...u
+  }) => {
+    const [i, a] = ke(e, t, r);
+    return /* @__PURE__ */ M(i, {
+      ...a,
+      ...u,
+      children: o
+    });
+  };
+  return n.displayName = `WithOptimizedConsumer(${he(e)})`, n;
+}, Re = (...e) => ({
   children: t
-}) => e.reduce((r, n) => /* @__PURE__ */ R(n, {
+}) => e.reduce((r, n) => /* @__PURE__ */ M(n, {
   children: r
 }), t);
 export {
   fe as ContextProvider,
-  ze as composeProviders,
-  Me as useMemoConsumer,
-  Ce as withContextProvider
+  Re as composeProviders,
+  ke as useMemoConsumer,
+  Me as withContextProvider,
+  ze as withOptimizedConsumer
 };

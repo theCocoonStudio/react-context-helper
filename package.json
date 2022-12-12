@@ -1,6 +1,6 @@
 {
   "name": "react-context-helper",
-  "version": "1.5.2",
+  "version": "1.5.3",
   "description": "Tiny library that provides easy updating of context and optimization of context consumers.",
   "type": "module",
   "files": [
